@@ -1,27 +1,10 @@
-import React, { forwardRef, useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
-import Tooltip from './Tooltip';
+import React, { forwardRef } from 'react';
 import Moon from './Moon';
+import OrbitLine from './OrbitLine';
+import Ring from './Ring';
+import Tooltip from './Tooltip';
 
-  
 const Planet = forwardRef(({ planet, onClick }, ref) => {
-  const moonRefs = useRef([]);
-
-  useFrame(({ clock }) => {
-    const elapsed = clock.getElapsedTime();
-
-    planet.moons?.forEach((moon, i) => {
-      const angle = elapsed * moon.speed;
-      const x = moon.distance * Math.cos(angle);
-      const z = moon.distance * Math.sin(angle);
-
-      if (moonRefs.current[i]) {
-        moonRefs.current[i].position.set(x, 0, z);
-      }
-    });
-  });
-
   return (
     <group ref={ref} onClick={() => onClick(planet)}>
       {/* Planet Mesh */}
@@ -31,12 +14,24 @@ const Planet = forwardRef(({ planet, onClick }, ref) => {
         <Tooltip label={planet.name} />
       </mesh>
 
-      {/* Moons */}
+      {/* Ring (if exists) */}
+      {planet.ring && (
+        <Ring
+          innerRadius={planet.ring.innerRadius}
+          outerRadius={planet.ring.outerRadius}
+          color={planet.ring.color}
+          tilt={planet.ring.tilt}
+        />
+      )}
+
+      {/* Moons and their Orbit Lines */}
       {planet.moons?.map((moon) => (
-        <Moon key={moon.name} moon={moon} />
+        <group key={moon.name}>
+          <OrbitLine radius={moon.distance} />
+          <Moon moon={moon} />
+        </group>
       ))}
     </group>
-
   );
 });
 
