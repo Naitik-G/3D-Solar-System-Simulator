@@ -12,7 +12,7 @@ export default function App() {
 
   return (
     <div className="h-screen w-screen bg-black text-white">
-      <Canvas camera={{ position: [0, 20, 40], fov: 60 }}>
+      <Canvas camera={{ position: [0, 100, 500], fov: 60 }}>
         <ambientLight intensity={0.5} />
         <pointLight position={[0, 0, 0]} intensity={2} />
         <SolarSystem onPlanetClick={setSelectedPlanet} timeSpeed={timeSpeed} />

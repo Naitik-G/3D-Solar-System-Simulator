@@ -5,7 +5,8 @@ const planetsData = [
     color: 'gray',
     distance: 3.9,
     orbitSpeed: 0.9,
-    moons: []
+    moons: [],
+    texture: 'mercury.jpg'
   },
   {
     name: 'Venus',
@@ -13,6 +14,7 @@ const planetsData = [
     color: 'orange',
     distance: 7.2,
     orbitSpeed: 0.7,
+    texture: 'venus_surface.jpg',
     moons: []
   },
   {
@@ -21,6 +23,7 @@ const planetsData = [
     color: 'blue',
     distance: 10.0,
     orbitSpeed: 0.5,
+    texture: 'earth_daymap.jpg',
     moons: [
       { name: 'Moon', size: 0.2, distance: 1.5, speed: 1.5 }
     ]
@@ -31,6 +34,7 @@ const planetsData = [
     color: 'red',
     distance: 15.2,
     orbitSpeed: 0.3,
+    texture: 'mars.jpg',
     moons: [
       { name: 'Phobos', size: 0.15, distance: 1.2, speed: 2.5 },
       { name: 'Deimos', size: 0.1, distance: 2.0, speed: 1.2 }
@@ -42,6 +46,7 @@ const planetsData = [
     color: 'brown',
     distance: 52.0,
     orbitSpeed: 0.1,
+    texture: 'jupiter.jpg',
     moons: [
       { name: 'Io', size: 0.3, distance: 2.0, speed: 1.8 },
       { name: 'Europa', size: 0.25, distance: 3.0, speed: 1.4 },
@@ -61,6 +66,7 @@ const planetsData = [
     color: 'gold',
     distance: 95.8,
     orbitSpeed: 0.08,
+    texture: 'saturn.jpg',
     moons: [
       { name: 'Titan', size: 0.4, distance: 3.0, speed: 1.2 },
       { name: 'Rhea', size: 0.25, distance: 4.5, speed: 1.0 },
@@ -79,6 +85,7 @@ const planetsData = [
     color: 'cyan',
     distance: 191.8,
     orbitSpeed: 0.05,
+    texture: 'uranus.jpg',
     moons: [
       { name: 'Titania', size: 0.25, distance: 3.0, speed: 1.0 },
       { name: 'Oberon', size: 0.25, distance: 4.0, speed: 0.9 },
@@ -97,6 +104,7 @@ const planetsData = [
     color: 'darkblue',
     distance: 300.7,
     orbitSpeed: 0.03,
+    texture: 'neptune.jpg',
     moons: [
       { name: 'Triton', size: 0.3, distance: 3.0, speed: 1.1 },
       { name: 'Nereid', size: 0.15, distance: 5.0, speed: 0.7 }

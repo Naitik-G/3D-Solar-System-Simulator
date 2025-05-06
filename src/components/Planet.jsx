@@ -1,16 +1,20 @@
 import React, { forwardRef } from 'react';
+import { useLoader } from '@react-three/fiber';
+import * as THREE from 'three';
 import Moon from './Moon';
 import OrbitLine from './OrbitLine';
 import Ring from './Ring';
 import Tooltip from './Tooltip';
 
 const Planet = forwardRef(({ planet, onClick }, ref) => {
+  const texture = useLoader(THREE.TextureLoader, planet.texture);
+
   return (
     <group ref={ref} onClick={() => onClick(planet)}>
       {/* Planet Mesh */}
       <mesh>
         <sphereGeometry args={[planet.size, 32, 32]} />
-        <meshStandardMaterial color={planet.color} />
+        <meshStandardMaterial map={texture} />
         <Tooltip label={planet.name} />
       </mesh>
 
